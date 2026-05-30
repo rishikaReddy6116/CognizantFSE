@@ -1,0 +1,126 @@
+/*Style for heading*/
+
+h1{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    font-style: normal;
+    font-weight: 500;
+}
+
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    background: linear-gradient(to right, #97bee0, #caf5f8);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+    /*
+    background-image: url(img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+*/
+@media screen and (max-width: 768px) {
+    nav li{
+        display: block;
+        margin: 10px 0;
+    }
+    h1{
+        font-size: 24px;
+    }
+
+    p{
+        font-size: 14px;
+    }
+    .tableform table{
+        width: 90%;
+    }
+    .news-article p{
+        column-count: 1 !important;
+    }
+}
+nav ul{
+    list-style-type: none; /* Remove bullets */
+    text-align: center;
+    margin: 20px 0;
+}
+nav li{
+    list-style-type: none;
+    text-align: center;
+    display: inline-block;
+    padding:10px 20px;
+    margin:5px;
+}
+.homepage{
+    text-align: center;
+}
+#aboutpage{
+    text-align: center;
+}
+.event-list{
+    list-style-type: square;
+    list-style-position: inside;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.event-list li{
+    padding: 8px;
+    margin: 5px 0;
+}
+a:link{
+    color: #97bee0;
+}
+
+a:visited{
+    color: rgb(16, 167, 116);
+}
+
+a:hover{
+    color: blue;
+}
+
+a:active{
+    color: red;
+}
+
+.tableform table{
+    margin: 20px auto;
+    padding: 0;
+    width: 50%;
+    max-width: 500px;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: #69abe6;
+}
+.tableform tr:nth-child(even){
+    background-color: white;
+}
+.eventcard{
+    border: 2px solid blue;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+.registrationform{
+    text-align: center;
+}
+input:focus{
+    outline:3px solid rgb(142, 142, 230)
+}
+.box{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}
+.box2{
+    display: none;
+}
+.news-article p{
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid gray;
+}
