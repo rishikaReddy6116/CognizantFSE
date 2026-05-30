@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <style>
+        #welcomeBanner{
+            background-color: lightblue;
+            margin-top: 10px;
+            color : white;
+            font-size: 30px;
+            padding : 10px;
+            text-align: center;
+        }
+        h2{
+            color : rgb(218, 108, 127);
+        }
+        h3{
+            text-align: center;
+            color :rgb(128, 196, 128)
+        }
+        .videoContainer{
+            text-align: center;
+        }
+        .highlight{
+            background-color: rgb(252, 252, 127);
+            padding: 10px;
+        }
+        nav a{
+            color: rgb(138, 199, 138);
+        }
+        table{
+            margin:auto;
+        }
+        .eventsImage{
+            height : 300px;
+            width : 300px;
+        }
+        td{
+            text-align: center;
+        }
+        #formContainer{
+            width:auto;
+            padding: 10px;
+            background-color: rgb(224, 212, 236);
+            margin: auto;
+        }
+        footer{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style ="font-size: 40px; text-align : center; color: rgb(218, 108, 127);">Local Community Event Portal</h1>
+        <!-- Navigation -->
+        <nav style = "font-size: 25px; text-align: center; color : rgb(138, 199, 138)">
+            <a href = "#home">Home</a> &nbsp;
+            <a href = "#events">Events</a>&nbsp;
+            <a href = "#contact">Contact</a>&nbsp;
+            <a href = "help.html" target = "_blank">Help</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Main -->
+        <div id = "welcomeBanner">
+            <p>Welcome back to the Local Community Portal</p>
+            <span style = "color : rgb(173, 54, 54); font-weight : bold;">Free workshop on weekends</span>
+        </div>
+
+        <section id = "home">
+            <h2>Home</h2>
+            <h3 align = "center">Welcome to Home Page</h3> 
+        </section>
+        
+        <section id = "events">
+            <h2>Events</h2>
+            <h3 align = "center">Events Registration</h3>
+            <table border = "1">
+                <tr>
+                    <td>
+                        <img src = "Pottery.jpg" alt = "Pottery" title = "Pottery Workshop" class = "eventsImage" ondblclick="enlargeFrame(this)">
+                        <p>Pottery Workshop</p>
+                    </td>
+                    <td>
+                        <img src = "ClayPainting.jpg" alt = "ClayPainting" title = "ClayPainting Workshop" class = "eventsImage" ondblclick="enlargeFrame(this)">
+                        <p>ClayPainting Workshop</p>
+                    </td>
+                    <td>
+                        <img src = "Art.jpg" alt = "Art" title = "Art Workshop" class = "eventsImage" ondblclick="enlargeFrame(this)">
+                        <p>Art Workshop</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src = "writing.jpg" alt = "Writing" title = "Writing Workshop" class = "eventsImage" ondblclick="enlargeFrame(this)">
+                        <p>Writing Workshop</p>
+                    </td>
+                    <td>
+                        <img src = "DIY.jpg" alt = "DIY" title = "DIY Workshop" class = "eventsImage" ondblclick="enlargeFrame(this)">
+                        <p>DIY Workshop</p>
+                    </td>
+                    <td>
+                        <img src = "Resin.jpg" alt = "Resin" title = "Resin Workshop" class = "eventsImage" ondblclick="enlargeFrame(this)">
+                        <p>Resin Workshop</p>
+                    </td>
+                </tr>
+                
+
+            </table>
+            <p class = "highlight">Lunch and supplies are included in the package</p>
+            
+            <h3>Event Promo Video</h3>
+            <div class = "videoContainer">
+                <video width = "600" controls oncanplay="videoReady()">
+                <source src = "video.mp4" type = "video/mp4">
+                </video>
+                <p id = "videoMessage"></p>
+            </div>
+            
+            <h3>Register for an event</h3>
+            <div id="formContainer">
+                <form>
+                <label>Name</label>
+                <input type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required autofocus>
+                <br><br>
+
+                <label>Email</label>
+                <input type="email"
+                id="email"
+                placeholder="Enter your email"
+                required>
+                <br><br>
+
+                <label>Phone Number</label>
+                <input type="tel"
+                id="Phone"
+                placeholder="Enter phone number"
+                onblur = "validateNumber()"
+                required>
+                <br><br>
+
+                <label>Event Date</label>
+                <input type="date"
+                id="date"
+                required>
+                <br><br>
+
+                <label>Event Type</label>
+                <select id = "eventType" onchange = "showFee()" required>
+                    <option>Select Event</option>
+                    <option>Pottery Workshop</option>
+                    <option>Clay Painting Workshop</option>
+                    <option>Art Workshop</option>
+                    <option>Writing Workshop</option>
+                    <option>DIY Workshop</option>
+                    <option>Resin Workshop</option>
+                </select>
+                <p id = "eventFee"></p>
+                <br><br>
+                <label>Message</label>
+
+                <textarea id="message" placeholder = "Enter your message" onkeyup="countChar()"></textarea>
+                <br><br>
+                <button onclick="showMessage()" type = "submit">Register</button>
+                <button type = "button" onclick="cleaPreferences()">Clear Preferences</button>
+                <p id = "charCnt"> Characters typed : 0 </p>
+                <br>
+                <output>Register form must be filled throughly</output>
+            </form>
+            <button onclick="showLocation()">Find nearby events</button>
+            <p id = "location"></p>
+            </div>
+        </section>
+        <section id = "contact">
+            <h2>Contact</h2>
+            <p class = "highlight">Contact Coordinators on queries.
+                Email : citycoordinators23@yahoo.com
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p><b>Copyright to Local Community Portal</b></p>
+    </footer>
+
+    <script>
+        function validateNumber(){
+            let phone = document.getElementById("Phone").value;
+            if(phone.length!=10){
+                alert("Phone number must contain 10 digits")
+            }
+        }
+
+        function showFee(){
+            let event = document.getElementById("eventType").value;
+            localStorage.setItem("preferredEvent",event)
+            let fee =""
+            if(event == "Pottery Workshop"){
+                fee = "₹699";
+            }
+
+            else if(event == "Clay Painting Workshop"){
+                fee = "₹599";
+            }
+
+            else if(event == "Art Workshop"){
+                fee = "₹749";
+            }
+
+            else if(event == "Writing Workshop"){
+                fee = "₹399";
+            }
+
+            else if(event == "DIY Workshop"){
+                fee = "₹899";
+            }
+
+            else if(event == "Resin Workshop"){
+                fee = "₹999";
+            }
+
+            document.getElementById("eventFee").innerHTML="Event Fee : "+fee;
+        }
+
+        function showMessage(){
+            alert("Registration submitted successfully")
+        }
+
+        function enlargeFrame(image){
+            image.style.width = "500px";
+            image.style.height = "500px";
+        }
+
+        function countChar(){
+            let text = document.getElementById("message").value;
+            let count = text.length;
+            document.getElementById("charCnt").innerHTML = "Characters typed : " +count
+        }
+
+        function videoReady(){
+            document.getElementById("videoMessage").innerHTML = "Video ready to play";
+        }
+
+        function showLocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(
+                    showPosition, showError,{
+                        enableHighAccuracy : true,
+                        timeout : 5000,
+                        maximumAge : 0
+                    }
+                )
+            }
+            else{
+                document.getElementById("location").innerHTML = "Geolocation is not supported";
+            }
+        }
+
+        function showPosition(position){
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+
+            document.getElementById("location").innerHTML = 
+            "Latitude : "+latitude+ "<br>Longitude : "+longitude 
+        }
+
+        function showError(){
+            if(error.code == 1){
+                alert("Permission denied")
+            }
+            else if(error.code == 2){
+                alert("Location unavailable")
+            }
+            else if(error.code == 3){
+                aler("Request timed out")
+            }
+            else{
+                alert("Unknown error")
+            }
+        }
+
+        function cleaPreferences(){
+            localStorage.clear();
+            sessionStorage.clear();
+            alert("Preferences cleared")
+        }
+        window.onbeforeunload = function(){
+            return "Your form is not submitted";
+        }
+
+        window.onload = function(){
+            let savedEvent = localStorage.getItem("preferredEvent");
+
+            if(savedEvent){
+                document.getElementById("eventType").value = savedEvent;
+                showFee();
+            }
+        } 
+    </script>
+
+</body>
+</html>
