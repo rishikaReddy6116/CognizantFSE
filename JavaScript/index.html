@@ -4,12 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <h1>Local Community Event Portal</h1>
-    <h2 id = "events-info"></h2>
-    <button onclick="RegisterEvent()">Register</button>
-    <p id = "seats"></p>
-    <script src = "main.js"></script>
+
+    <div class="controls">
+        <select id="categoryFilter">
+            <option value="All">All Categories</option>
+            <option value="Music">Music</option>
+            <option value="Education">Education</option>
+            <option value="Sports">Sports</option>
+        </select>
+
+        <input type="text" id="searchBox" placeholder="Search Events">
+    </div>
+
+    <div id="loading">Loading Events...</div>
+
+    <div id="eventContainer"></div>
+
+    <h2>Register for Event</h2>
+
+    <form id="registerForm">
+        <input type="text" name="name" placeholder="Full Name">
+        <input type="email" name="email" placeholder="Email">
+        
+        <select name="event">
+            <option value="Music Fest">Music Fest</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Sports Meet">Sports Meet</option>
+        </select>
+
+        <button type="submit" id="registerBtn">
+            Submit Registration
+        </button>
+    </form>
+
+    <p id="error"></p>
+
+    <script src="main.js"></script>
 </body>
 </html>
